@@ -26,7 +26,7 @@ def tprint(string,end=None):
 def check_dirs():
     tprint("Checking for logs/, plot/ and data/ dirs ")
     if not os.path.exists('logs'):
-        print("logs/ dir doesn't exist creating it")
+        tprint("logs/ dir doesn't exist creating it")
         os.makedirs('logs')
 
     # tprint("Checking for plots/ dir ")
