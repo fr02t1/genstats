@@ -10,12 +10,14 @@ import pytz
 
 
 def main():
+    
+    # check if logs/,plots and data/ dirs exist
+    check_dirs()
+    
     # set up logging
     log_filename = datetime.datetime.now().strftime('gs-log_%Y-%m-%d_%H-%M-%S.log')
     logging.basicConfig(filename=f"logs/{log_filename}", level=logging.INFO)
 
-    # check if logs/,plots and data/ dirs exist
-    check_dirs()
 
     tprint(f"Authenticated as /u/{r.user.me()}")
     tprint(f"Starting at: {datetime.datetime.now(tz).strftime('%Y:%m:%d %H:%M:%S')}")
