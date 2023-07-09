@@ -1,15 +1,18 @@
-from common import tprint, r, check_dirs
-from getData import get_date_range, get_comments
-from config import subs, tz, plot_data
-from plot import plot_comm_day
 
 import datetime
 import logging
 import os
 import pytz
 
+from common import tprint, r, check_dirs
+from getData import get_date_range, get_comments
+from config import subs, tz, plot_data
+from plot import plot_comm_day
+
 
 def main():
+
+
     # check if logs/,plots and data/ dirs exist
     check_dirs()
 
@@ -23,9 +26,9 @@ def main():
     tprint(f"Timezone: {tz}")
     tprint(f"Subreddits: {subs}")
 
-    # for sub in subs:
-    #     sub_ = get_date_range(sub, 14)
-    #     get_comments(sub_)
+    for sub in subs:
+        sub_ = get_date_range(sub, 14)
+        get_comments(sub_)
 
     plot_comm_day(plot_data, str(tz))
 

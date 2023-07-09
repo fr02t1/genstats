@@ -1,9 +1,10 @@
-from common import tprint, r
-from config import end_date
 import pandas as pd
 import datetime
 import tqdm
 import re
+
+from common import tprint, r
+from config import end_date
 
 def get_date_range(subreddit, days):
     global end_date
@@ -57,3 +58,11 @@ def get_comments(subm_id):
     df = pd.concat(df_list, ignore_index=True)
     df.to_csv(current_filename, index=False)
     tprint(f"Wrote {len(df)} comments to {current_filename}")
+
+
+def getCommentPostByID(id):
+    submission = r.submission(id=id)
+    submission.comments.replace_more(limit=None)
+    for comment in submission.comments.list():
+        print(comment.body)
+
